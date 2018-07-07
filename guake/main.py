@@ -56,6 +56,9 @@ def main():
     # Force to xterm-256 colors for compatibility with some old command line programs
     os.environ["TERM"] = "xterm-256color"
 
+    # Force use X11 backend underwayland
+    os.environ["GDK_BACKEND"] = "x11"
+
     # do not use version keywords here, pbr might be slow to find the version of Guake module
     parser = OptionParser()
     parser.add_option(
@@ -179,7 +182,7 @@ def main():
         dest='tab_index',
         action='store',
         default='0',
-        help=_('Specify the tab to rename. Default is 0. Can be used to select tab by UUID')
+        help=_('Specify the tab to rename. Default is 0. Can be used to select tab by UUID.')
     )
 
     parser.add_option(
